@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import {Platform, StyleSheet, View, Text, ToolbarAndroid} from 'react-native';
+import {Platform, StyleSheet, View, Text} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import {RFValue} from 'react-native-responsive-fontsize';
@@ -20,9 +20,9 @@ export default class AppToolbar extends Component {
     toolbarIOS() {
         return (
             <View style={styles.toolbarIOS}>
-                <View style={{ flexDirection: 'row' }}>
+                <View style={{flexDirection: 'row'}}>
                     <Icon
-                        style={{ paddingRight:20,paddingLeft:10,paddingVertical:10}}
+                        style={{paddingRight:20,paddingLeft:10,paddingVertical:10}}
                         name="ios-arrow-back"
                         size={30}
                         color="white"
@@ -31,7 +31,7 @@ export default class AppToolbar extends Component {
                     <Text style={styles.textIOS}>{this.props.title}</Text>
                 </View>
                 <Icon
-                    style={{ padding: 10}}
+                    style={{padding: 10}}
                     name="ios-log-out"
                     size={30}
                     color="white"
@@ -52,17 +52,17 @@ const styles = StyleSheet.create({
     toolbar: {
         height: 60,
         padding: 20,
-        backgroundColor: '#0000e6',
+        backgroundColor: '#4F99FB',
     },
     toolbarIOS: {
         height: 60,
-        backgroundColor: '#0000e6',
+        backgroundColor: '#4F99FB',
         alignItems: 'center',
         flexDirection: 'row',
         justifyContent: 'space-between',
     },
     textIOS: {
-        marginLeft:10,
+        marginLeft: 10,
         alignSelf: 'center',
         color: 'white',
         fontSize: RFValue(22),
