@@ -1,11 +1,12 @@
-import React from 'react';
-import {useGlobal} from 'reactn';
+import React, {useGlobal} from 'reactn';
 import {StyleSheet, View, TextInput, Text} from 'react-native';
 import {RFValue} from 'react-native-responsive-fontsize';
 import Icon from 'react-native-vector-icons/FontAwesome';
+// import AsyncStorage from '@react-native-community/async-storage';
 
 const SearchScreen = () => {
     const [cep, setCep] = useGlobal('cep');
+    const [historySearch, setHistorySearch] = useGlobal('historySearch');
     const filterCep = text => {
         const invalidChar =
             text.includes('.') ||
@@ -17,9 +18,10 @@ const SearchScreen = () => {
         }
     };
     let buttonBgColor = '#D0D0D0';
-    if (cep.length === 9) {
+    if (cep.length === 8) {
         buttonBgColor = '#4F99FB';
     }
+    // setHistorySearch(AsyncStorage.getItem('historySearch'));
 
     return (
         <>
@@ -37,7 +39,7 @@ const SearchScreen = () => {
                     placeholderTextColor={styles.textInput.borderColor}
                     keyboardType={'number-pad'}
                     value={cep}
-                    maxLength={9}
+                    maxLength={8}
                 />
                 <Icon.Button
                     name="arrow-right"

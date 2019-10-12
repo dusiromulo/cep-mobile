@@ -1,11 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-
 import React, {useGlobal} from 'reactn';
 import {
     SafeAreaView,
@@ -19,6 +11,7 @@ import AppToolbar from './components/AppToolbar';
 const App = () => {
     const [screen] = useGlobal('currScreen');
     const [async] = useGlobal('asyncProgress');
+
     let loader = null;
     if (async) {
         loader = (
