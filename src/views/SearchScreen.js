@@ -58,7 +58,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#4F99FB',
         paddingLeft: 50,
         paddingRight: 50,
-        flexGrow: 0.1,
+        paddingBottom: 30,
+        flexGrow: 0,
     },
     title: {
         color: 'white',
@@ -74,7 +75,7 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         justifyContent: 'space-between',
         padding: 20,
-        flexGrow: 0.9,
+        flexGrow: 1,
     },
     textInput: {
         height: 40,

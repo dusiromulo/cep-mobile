@@ -12,20 +12,27 @@ import {
     StyleSheet,
     View,
     StatusBar,
+    ActivityIndicator,
 } from 'react-native';
 import AppToolbar from './components/AppToolbar';
-import SearchScreen from './views/SearchScreen';
 
 const App = () => {
-    // const [value, setValue] = useGlobal('value');
-    // useGlobal();
+    const [screen] = useGlobal('currScreen');
+    const [async] = useGlobal('asyncProgress');
+    let loader = null;
+    if (async) {
+        loader = (
+            <View style={styles.loader}>
+                <ActivityIndicator size="large" color="#000000" />
+            </View>
+        );
+    }
     return (
         <View style={[styles.container, styles.whiteBg]}>
             <StatusBar barStyle="dark-content" />
             <AppToolbar title={''} />
-            <SafeAreaView style={styles.container}>
-                <SearchScreen />
-            </SafeAreaView>
+            <SafeAreaView style={styles.container}>{screen}</SafeAreaView>
+            {loader}
         </View>
     );
 };
@@ -34,6 +41,16 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         flexDirection: 'column',
+    },
+    loader: {
+        position: 'absolute',
+        top: 0,
+        bottom: 0,
+        left: 0,
+        right: 0,
+        backgroundColor: '#00000020',
+        alignContent: 'center',
+        justifyContent: 'center',
     },
     whiteBg: {
         backgroundColor: 'white',
