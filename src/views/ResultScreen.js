@@ -54,10 +54,6 @@ const ResultScreen = ({local}) => {
 };
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        flexDirection: 'column',
-    },
     titleView: {
         backgroundColor: '#4F99FB',
         paddingLeft: 50,
@@ -89,19 +85,6 @@ const styles = StyleSheet.create({
         color: 'white',
         textAlign: 'center',
         fontSize: RFValue(16),
-    },
-    containerElements: {
-        flexDirection: 'column',
-        justifyContent: 'space-between',
-        padding: 20,
-        flexGrow: 1,
-    },
-    textInput: {
-        height: 40,
-        borderColor: '#4F9CFB',
-        borderWidth: 1,
-        borderRadius: 10,
-        paddingLeft: 10,
     },
 });
 
