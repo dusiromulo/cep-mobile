@@ -11,11 +11,12 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import ResultScreen from './ResultScreen';
 
 const Item = ({local}) => {
-    const [currScreen, setCurrScreen] = useGlobal('currScreen');
+    const [stackScreen, setStackScreen] = useGlobal('stackScreen');
     return (
         <TouchableNativeFeedback
             onPress={() => {
-                setCurrScreen(<ResultScreen local={local} />);
+                stackScreen.push(<ResultScreen local={local} />);
+                setStackScreen(stackScreen);
             }}>
             <View style={styles.itemParent}>
                 <Text style={styles.value}>{local.cep}</Text>

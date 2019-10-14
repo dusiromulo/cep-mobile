@@ -9,25 +9,30 @@ import {
 import AppToolbar from './components/AppToolbar';
 
 const App = () => {
-    const [screen] = useGlobal('currScreen');
+    const [stackScreen] = useGlobal('stackScreen');
     const [async] = useGlobal('asyncProgress');
+    const [s] = useGlobal('lastSearches');
 
     let loader = null;
     if (async) {
         loader = (
             <View style={styles.loader}>
-                <ActivityIndicator size="large" color="#000000" />
+                <ActivityIndicator size="large" color="#FFFFFF" />
             </View>
         );
     }
-    return (
-        <View style={[styles.container, styles.whiteBg]}>
-            <StatusBar barStyle="dark-content" />
-            <AppToolbar title={''} />
-            <SafeAreaView style={styles.container}>{screen}</SafeAreaView>
-            {loader}
-        </View>
-    );
+    if (stackScreen) {
+        const screen = stackScreen[stackScreen.length - 1];
+        return (
+            <View style={[styles.container, styles.whiteBg]}>
+                <StatusBar barStyle="dark-content" />
+                <AppToolbar title={''} />
+                <SafeAreaView style={styles.container}>{screen}</SafeAreaView>
+                {loader}
+            </View>
+        );
+    }
+    return null;
 };
 
 const styles = StyleSheet.create({
@@ -41,7 +46,7 @@ const styles = StyleSheet.create({
         bottom: 0,
         left: 0,
         right: 0,
-        backgroundColor: '#00000020',
+        backgroundColor: '#2699FB90',
         alignContent: 'center',
         justifyContent: 'center',
     },
